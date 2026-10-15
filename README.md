@@ -4,25 +4,23 @@ Small tool to import cards into Magic Set Editor
 ## Requirements
 This tool requires Python 3
 
-In order to manipulate `.mse-set` files I recommend using 7z: https://www.7-zip.org/download.html  
+If you want to manually edit `.mse-set` files, I recommend using 7z: https://www.7-zip.org/download.html  
 
 ## How to use it
 First generate the content of the set file:
 - Store the list of cards you want to import in a txt file, one card name per line.
 - Open a command line and run  `python mse_generate.py <filename>.txt `
 . Wait until the program finishes
-- The formatted file will be in `result.txt`
+- The formatted file will be in `results.txt`
 
-Now we need to add that to an MSE Set:
-- Go to the folder where your MSE set save file  is located(If you don't have one, create one and add an empty card)
-- Using 7z right-click and select 'Open archive'
-- Find the `set` file, right-click -> Edit (with notepad)
-- Paste the full content of `result.txt` at the bottom, on a new line before `version control`
-- Save and close, 7z will ask to change, select OK
-- Open MSE and Load your set, your cards should be there, enjoy!
+Now add the cards to an existing MSE set file (automated):
+- Create/open an MSE set and save it (it must exist as a `.mse-set` file)
+- Run:
+  - `python mod_set.py <cards>.txt <your-set>.mse-set -o output.mse-set`
+- Open `output.mse-set` in MSE, your cards should be there.
 
 ## TODO
-Create an MSE Set instead of having to do the manual steps
+Create an MSE Set instead of requiring an existing `.mse-set`
 
 Specify a full set directly
 
